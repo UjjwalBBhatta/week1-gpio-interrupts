@@ -24,5 +24,14 @@ Today I successfully flashed MicroPython to the ESP32 and verified the hardware 
 | Voltage across 220 Ω | ~1.3 V | 1.15 V | ~11.5 % |
 | LED Current | 5.9 mA | 5.23 mA | 11.3 % |
 
+## 19 Nov: Debounced Push-Button Input (`dry_tank_polling.py`)
+- **Circuit:** Tactile push button on `GPIO 4` (internal `Pin.PULL_UP` enabled, active-low to `GND`) and status LED on `GPIO 13` with a `220 Ω` current-limiting resistor.
+- **Debounce Logic:** `20 ms` double-read state verification (`while True` polling) to filter mechanical contact bounce.
+- **Bench Result:** Verified 100% single-toggle response per press with zero flicker.
+
+
 ### Gallery
 ![Breadboard Setup](notes/day1b_led_breadboard.jpg)
+![19 Nov Breadboard Circuit](notes/day3_button_breadboard.jpg)
+
+
